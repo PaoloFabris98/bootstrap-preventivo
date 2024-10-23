@@ -25,41 +25,42 @@
             <p>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
           </div>
           <div>
-            <form>
+            <form class="needs-validation" novalidate>
               <div class="mb-3">
                 <label for="nameInput" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nameInput">
+                <input type="text" class="form-control" id="nameInput" required>
               </div>
               <div class="mb-3">
                 <label for="surnameInput" class="form-label">Cognome</label>
-                <input type="text" class="form-control" id="surnameInput">
+                <input type="text" class="form-control" id="surnameInput" required>
               </div>
               <div class="mb-3">
                 <label for="emailInput" class="form-label">Email</label>
-                <input type="email" class="form-control" id="emailInput">
+                <input type="email" class="form-control" id="emailInput" required>
               </div>
               <div class="mb-3">
                 <label for="jobSelect" class="form-label">Tipo di lavoro</label>
-                <select class="form-select" id="jobSelect">
-                  <option selected>Open this select menu</option>
+                <select class="form-select" id="jobSelect" required>
+                  <option selected>Seleziona il lavoro</option>
                   <option value="1">sviluppo backend - paga oraria: 20.50€</option>
                   <option value="2">sviluppo frontend - paga oraria: 15.30€</option>
                   <option value="3">analisi progettuale - paga oraria: 33.60€</option>
                 </select>
               </div>
               <div class="mb-3">
-                <label for="textArea" class="form-label">Comments</label>
-                <textarea class="form-control" id="textArea" style="height: 100px"></textarea>
+                <label for="textArea" class="form-label">Textarea con Bootstrap 5</label>
+                <textarea class="form-control" id="textArea" style="height: 100px" required></textarea>
               </div>
               <div class="mb-3">
                 <label for="promCode" class="form-label">Codice Promozionale (opzionale)</label>
                 <input type="text" class="form-control" id="promCode">
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault" >
                   Accetto La Privacy policy
                 </label>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+
               </div>
               <button type="submit" class="btn btn-primary mt-3">Calcola preventivo</button>
             </form>
