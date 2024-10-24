@@ -29,14 +29,17 @@
               <div class="mb-3">
                 <label for="nameInput" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="nameInput" required>
+                <div class="d-none text-danger" id="nameAllert">Il nome non è valido o è vuoto.</div>
               </div>
               <div class="mb-3">
                 <label for="surnameInput" class="form-label">Cognome</label>
                 <input type="text" class="form-control" id="surnameInput" required>
+                <div class="d-none text-danger" id="surnameAllert">Il cognome non è valido o è vuoto.</div>
               </div>
               <div class="mb-3">
                 <label for="emailInput" class="form-label">Email</label>
                 <input type="email" class="form-control" id="emailInput" required>
+                <div class="d-none text-danger" id="emailAllert">L'email non è valida o è vuota</div>
               </div>
               <div class="mb-3">
                 <label for="jobSelect" class="form-label">Tipo di lavoro</label>
@@ -46,23 +49,30 @@
                   <option value="2">sviluppo frontend - paga oraria: 15.30€</option>
                   <option value="3">analisi progettuale - paga oraria: 33.60€</option>
                 </select>
+                <div class="d-none text-danger" id="jobAllert">Seleziona un'opzione valida dal campo 'Tipo di lavoro'.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="textArea" class="form-label">Textarea con Bootstrap 5</label>
                 <textarea class="form-control" id="textArea" style="height: 100px" required></textarea>
+                <div class="d-none text-danger" id="textAllert">Il campo 'testo' non è valido o è vuoto.
+                </div>
               </div>
               <div class="mb-3">
                 <label for="promCode" class="form-label">Codice Promozionale (opzionale)</label>
                 <input type="text" class="form-control" id="promCode">
+                <div class="d-none text-danger" id="promAllert">Il codice promozionale non è valido.
+                </div>
               </div>
               <div class="form-check">
-                <label class="form-check-label" for="flexCheckDefault" >
+                <label class="form-check-label" for="flexCheckDefault">
                   Accetto La Privacy policy
                 </label>
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-
+                <input class="form-check-input" type="checkbox" id="privacy">
+                <div class="d-none text-danger" id="privacyAllert">Devi accettare la privacy policy.
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary mt-3">Calcola preventivo</button>
+              <button type="submit" class="btn btn-primary mt-3" id="submit">Calcola preventivo</button>
             </form>
           </div>
         </div>

@@ -1,6 +1,6 @@
-export function navBar(){
-    const head = document.getElementById("navB");
-    head.innerHTML += `<div class="container p-3">
+export function navBar() {
+  const head = document.getElementById("navB");
+  head.innerHTML += `<div class="container ps-3">
       <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <div class="navbar-brand">
@@ -26,7 +26,12 @@ export function navBar(){
           </div>
         </div>
       </nav>
-    </div>`
-};
+    </div>`;
+}
 
-
+export function error(field) {
+  field.classList.remove("d-none");
+}
+export function removeAlert(field) {
+  field.classList.add("d-none");
+}
