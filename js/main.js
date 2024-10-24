@@ -18,6 +18,37 @@ const textErr = document.getElementById("textAllert");
 const promErr = document.getElementById("promAllert");
 const privacyErr = document.getElementById("privacyAllert");
 
+const oreLavorate = Number(10); //numero default secondo esercizio
+const codes = [
+  {
+    promcode: "YHDNU32",
+    isValid: true,
+    discount: Number(25),
+  },
+  {
+    promcode: "JANJC63",
+    isValid: false,
+    discount: Number(0),
+  },
+  {
+    promcode: "PWKCN25",
+    isValid: false,
+    discount: Number(0),
+  },
+  {
+    promcode: "SJDPO96",
+    isValid: false,
+    discount: Number(0),
+  },
+  {
+    promcode: "POCIE24",
+    isValid: false,
+    discount: Number(0),
+  },
+];
+
+
+
 populator.navBar();
 
 buttonSubmit.addEventListener("click", function (event) {
@@ -76,7 +107,6 @@ buttonSubmit.addEventListener("click", function (event) {
 
   if (!funct.isString(prom)) {
     err++;
-
     populator.error(promErr);
   } else {
     populator.removeAlert(promErr);
@@ -89,5 +119,25 @@ buttonSubmit.addEventListener("click", function (event) {
   }
 
   if (!(err != 0)) {
+
+    let discountQuantity = 0;
+
+
+    if(prom != ""){
+      for(let i = 0; i < codes.length; i++){
+        if(prom === codes[i].promcode && codes[i].isValid) {
+          discountQuantity = codes[i].discount;
+         
+          break;
+        } else {
+          console.log(codes[i].promcode);
+          console.log("codice non valido");
+        }
+      }
+    }
+    console.log(discountQuantity);
+
+
   }
+  
 });
