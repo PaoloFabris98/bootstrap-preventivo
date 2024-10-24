@@ -25,25 +25,25 @@
             <p>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
           </div>
           <div>
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation">
               <div class="mb-3">
                 <label for="nameInput" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nameInput" required>
+                <input type="text" class="form-control" id="nameInput">
                 <div class="d-none text-danger" id="nameAllert">Il nome non è valido o è vuoto.</div>
               </div>
               <div class="mb-3">
                 <label for="surnameInput" class="form-label">Cognome</label>
-                <input type="text" class="form-control" id="surnameInput" required>
+                <input type="text" class="form-control" id="surnameInput">
                 <div class="d-none text-danger" id="surnameAllert">Il cognome non è valido o è vuoto.</div>
               </div>
               <div class="mb-3">
                 <label for="emailInput" class="form-label">Email</label>
-                <input type="email" class="form-control" id="emailInput" required>
+                <input type="email" class="form-control" id="emailInput">
                 <div class="d-none text-danger" id="emailAllert">L'email non è valida o è vuota</div>
               </div>
               <div class="mb-3">
                 <label for="jobSelect" class="form-label">Tipo di lavoro</label>
-                <select class="form-select" id="jobSelect" required>
+                <select class="form-select" id="jobSelect">
                   <option selected>Seleziona il lavoro</option>
                   <option value="1">sviluppo backend - paga oraria: 20.50€</option>
                   <option value="2">sviluppo frontend - paga oraria: 15.30€</option>
@@ -54,7 +54,7 @@
               </div>
               <div class="mb-3">
                 <label for="textArea" class="form-label">Textarea con Bootstrap 5</label>
-                <textarea class="form-control" id="textArea" style="height: 100px" required></textarea>
+                <textarea class="form-control" id="textArea" style="height: 100px"></textarea>
                 <div class="d-none text-danger" id="textAllert">Il campo 'testo' non è valido o è vuoto.
                 </div>
               </div>
@@ -65,7 +65,7 @@
                 </div>
               </div>
               <div class="form-check">
-                <label class="form-check-label" for="flexCheckDefault">
+                <label class="form-check-label" for="privacy">
                   Accetto La Privacy policy
                 </label>
                 <input class="form-check-input" type="checkbox" id="privacy">

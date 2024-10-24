@@ -89,8 +89,5 @@ buttonSubmit.addEventListener("click", function (event) {
   }
 
   if (!(err != 0)) {
-
-
-
   }
 });
