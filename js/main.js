@@ -29,9 +29,10 @@ const backEndPay = Number(obj.jobCost[0].paga);
 const frontEndPay = Number(obj.jobCost[1].paga);
 const designAnalysisPay = Number(obj.jobCost[2].paga);
 
+const itteration = obj.jobCost.length;
 
 populator.navBar();
-populator.jobSelectPopulator();
+populator.jobSelectPopulator(itteration);
 
 buttonSubmit.addEventListener("click", function (event) {
   event.preventDefault();

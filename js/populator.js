@@ -38,9 +38,9 @@ export function removeAlert(field) {
   field.classList.add("d-none");
 }
 
-export function jobSelectPopulator(){
+export function jobSelectPopulator(itteration){
   const jobSelector = document.getElementById("jobSelect");
-  for(let i = 1; i <= 3;i++){
+  for(let i = 1; i <= itteration;i++){
     jobSelector.innerHTML += `
       <option value="${i}">${obj.jobCost[i-1].name} - paga oraria: ${obj.jobCost[i-1].paga}€</option>
     `
