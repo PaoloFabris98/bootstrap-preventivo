@@ -18,6 +18,12 @@ const textErr = document.getElementById("textAllert");
 const promErr = document.getElementById("promAllert");
 const privacyErr = document.getElementById("privacyAllert");
 
+const finalPryce = document.getElementById("finalPryce");
+
+const backEndPay = Number(20.5);
+const frontEndPay = Number(15.3);
+const designAnalysisPay = Number(33.6);
+
 const oreLavorate = Number(10); //numero default secondo esercizio
 const codes = [
   {
@@ -46,8 +52,6 @@ const codes = [
     discount: Number(0),
   },
 ];
-
-
 
 populator.navBar();
 
@@ -84,7 +88,7 @@ buttonSubmit.addEventListener("click", function (event) {
   } else {
     populator.removeAlert(surnameErr);
   }
-  if (!funct.isString(email) || email === "") {
+  if (!funct.isString(email) || email === "" || !funct.validateEmail(email)) {
     err++;
     populator.error(emailErr);
   } else {
@@ -119,24 +123,37 @@ buttonSubmit.addEventListener("click", function (event) {
   }
 
   if (!(err != 0)) {
+    let price = Number(0);
+    let pay = Number(0);
+    let discountQuantity = Number(0);
+    let discount = Number(0);
 
-    let discountQuantity = 0;
-
-
-    if(prom != ""){
-      for(let i = 0; i < codes.length; i++){
-        if(prom === codes[i].promcode && codes[i].isValid) {
+    if (prom != "") {
+      for (let i = 0; i < codes.length; i++) {
+        if (prom === codes[i].promcode && codes[i].isValid) {
           discountQuantity = codes[i].discount;
-         
           break;
-        } else {
-          console.log(codes[i].promcode);
-          console.log("codice non valido");
         }
       }
     }
-    console.log(discountQuantity);
+    if (job == 1) {
+      pay = backEndPay;
+    } else if (job == 2) {
+      pay = frontEndPay;
+    } else if (job == 3) {
+      pay = designAnalysisPay;
+    }
 
+    price = (pay * oreLavorate).toFixed(2);
+    discount = ((price / 100) * discountQuantity).toFixed(2);
+    price = Number((price - discount).toFixed(2));
+    let priceStr = price.toFixed(2);
+    let [intPart, decimalPart] = priceStr.split(".");
+
+    finalPryce.innerHTML = `
+  <b>Prezzo finale</b><br>
+  € <b>${intPart}</b>,${decimalPart}
+`;
 
   }
   
