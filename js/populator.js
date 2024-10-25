@@ -1,3 +1,5 @@
+import * as obj from "./obj.js"
+
 export function navBar() {
   const head = document.getElementById("navB");
   head.innerHTML += `<div class="container ps-3">
@@ -34,4 +36,13 @@ export function error(field) {
 }
 export function removeAlert(field) {
   field.classList.add("d-none");
+}
+
+export function jobSelectPopulator(){
+  const jobSelector = document.getElementById("jobSelect");
+  for(let i = 1; i <= 3;i++){
+    jobSelector.innerHTML += `
+      <option value="${i}">${obj.jobCost[i-1].name} - paga oraria: ${obj.jobCost[i-1].paga}€</option>
+    `
+  }
 }

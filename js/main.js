@@ -1,5 +1,6 @@
 import * as populator from "./populator.js";
 import * as funct from "./funct.js";
+import * as obj from "./obj.js"
 
 const buttonSubmit = document.getElementById("submit");
 const nameField = document.getElementById("nameInput");
@@ -20,40 +21,17 @@ const privacyErr = document.getElementById("privacyAllert");
 
 const finalPryce = document.getElementById("finalPryce");
 
-const backEndPay = Number(20.5);
-const frontEndPay = Number(15.3);
-const designAnalysisPay = Number(33.6);
 
 const oreLavorate = Number(10); //numero default secondo esercizio
-const codes = [
-  {
-    promcode: "YHDNU32",
-    isValid: true,
-    discount: Number(25),
-  },
-  {
-    promcode: "JANJC63",
-    isValid: false,
-    discount: Number(0),
-  },
-  {
-    promcode: "PWKCN25",
-    isValid: false,
-    discount: Number(0),
-  },
-  {
-    promcode: "SJDPO96",
-    isValid: false,
-    discount: Number(0),
-  },
-  {
-    promcode: "POCIE24",
-    isValid: false,
-    discount: Number(0),
-  },
-];
+
+
+const backEndPay = Number(obj.jobCost[0].paga);
+const frontEndPay = Number(obj.jobCost[1].paga);
+const designAnalysisPay = Number(obj.jobCost[2].paga);
+
 
 populator.navBar();
+populator.jobSelectPopulator();
 
 buttonSubmit.addEventListener("click", function (event) {
   event.preventDefault();
@@ -129,23 +107,23 @@ buttonSubmit.addEventListener("click", function (event) {
     let discount = Number(0);
 
     if (prom != "") {
-      for (let i = 0; i < codes.length; i++) {
-        if (prom === codes[i].promcode && codes[i].isValid) {
-          discountQuantity = codes[i].discount;
+      for (let i = 0; i < obj.codes.length; i++) {
+        if (prom === obj.codes[i].promcode && obj.codes[i].isValid) {
+          discountQuantity = Number(obj.codes[i].discount);
           break;
         }
       }
     }
     if (job == 1) {
-      pay = backEndPay;
+      pay = Number(backEndPay);
     } else if (job == 2) {
-      pay = frontEndPay;
+      pay = Number(frontEndPay);
     } else if (job == 3) {
-      pay = designAnalysisPay;
+      pay = Number(designAnalysisPay);
     }
 
-    price = (pay * oreLavorate).toFixed(2);
-    discount = ((price / 100) * discountQuantity).toFixed(2);
+    price = Number((pay * oreLavorate).toFixed(2));
+    discount = Number(((price / 100) * discountQuantity).toFixed(2));
     price = Number((price - discount).toFixed(2));
     let priceStr = price.toFixed(2);
     let [intPart, decimalPart] = priceStr.split(".");
