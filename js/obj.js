@@ -16,6 +16,7 @@ export const jobCost = [
       name: "analisi progettuale",
       paga: Number(funct.getRandomNumber(min, max)),
     },
+    
   ];
 
 export const codes = [
