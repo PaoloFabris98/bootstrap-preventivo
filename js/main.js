@@ -3,14 +3,14 @@ import * as funct from "./funct.js";
 import * as obj from "./obj.js";
 import * as val from "./validator.js";
 
-const buttonSubmit = document.getElementById("submit");
-const nameField = document.getElementById("nameInput");
-const surnameField = document.getElementById("surnameInput");
-const emailField = document.getElementById("emailInput");
-const jobField = document.getElementById("jobSelect");
-const textField = document.getElementById("textArea");
-const promField = document.getElementById("promCode");
-const privacyField = document.getElementById("privacy");
+export const buttonSubmit = document.getElementById("submit");
+export const nameField = document.getElementById("nameInput");
+export const surnameField = document.getElementById("surnameInput");
+export const emailField = document.getElementById("emailInput");
+export const jobField = document.getElementById("jobSelect");
+export const textField = document.getElementById("textArea");
+export const promField = document.getElementById("promCode");
+export const privacyField = document.getElementById("privacy");
 
 const finalPryce1 = document.getElementById("finalPryce1");
 const finalPryce2 = document.getElementById("finalPryce2");
