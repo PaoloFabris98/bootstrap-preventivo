@@ -37,7 +37,7 @@ buttonSubmit.addEventListener("click", function (event) {
   const prom = promField.value;
   const privacy = privacyField.checked;
 
-  
+  let err = 0;
 
   console.log(name);
   console.log(surname);

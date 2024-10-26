@@ -8,8 +8,8 @@ const textErr = document.getElementById("textAllert");
 const promErr = document.getElementById("promAllert");
 const privacyErr = document.getElementById("privacyAllert");
 
-export function validation(name, surname, email, job, text, prom, privacy) {
-  let err = 0;
+export function validation(name, surname, email, job, text, prom, privacy, err) {
+
   if (!funct.isString(name) || name === "") {
     err++;
     populator.error(nameErr);
