@@ -11,7 +11,7 @@ const privacyErr = document.getElementById("privacyAllert");
 
 export function validation(name, surname, email, job, text, prom, privacy) {
     let err = 0;
-  if (!funct.isString(name) || name === "") {
+  if (!funct.isString(name) || name === "" || isNaN(name)) {
     err++;
     main.nameField.classList.remove("border-success");
     main.nameField.classList.add("border-danger");
@@ -22,7 +22,7 @@ export function validation(name, surname, email, job, text, prom, privacy) {
     populator.removeAlert(nameErr);
   }
 
-  if (!funct.isString(surname) || surname === "") {
+  if (!funct.isString(surname) || surname === "" || isNaN(surname)) {
     err++;
     main.surnameField.classList.remove("border-success");
     main.surnameField.classList.add("border-danger");
