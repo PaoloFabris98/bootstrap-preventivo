@@ -19,10 +19,6 @@ const finalPryce = document.getElementById("finalPryce");
 const oreLavorate = Number(10); //numero default secondo esercizio
 
 
-const backEndPay = Number(obj.jobCost[0].paga);
-const frontEndPay = Number(obj.jobCost[1].paga);
-const designAnalysisPay = Number(obj.jobCost[2].paga);
-
 
 populator.navBar();
 populator.jobSelectPopulator(obj.jobCost.length);
@@ -37,7 +33,7 @@ buttonSubmit.addEventListener("click", function (event) {
   const prom = promField.value;
   const privacy = privacyField.checked;
 
-  let err = 0;
+  let err = val.validation(name,surname,email,job,text,prom,privacy);;
 
   console.log(name);
   console.log(surname);
@@ -47,11 +43,11 @@ buttonSubmit.addEventListener("click", function (event) {
   console.log(prom);
   console.log(privacy);
 
-  val.validation(name,surname,email,job,text,prom,privacy)
+  
 
-  if (!(err != 0)) {
+  if (err == 0) {
     let price = Number(0);
-    let pay = Number(0);
+    let pay = Number(obj.jobCost[job-1].paga);
     let discountQuantity = Number(0);
     let discount = Number(0);
 
@@ -63,14 +59,6 @@ buttonSubmit.addEventListener("click", function (event) {
         }
       }
     }
-    if (job == 1) {
-      pay = Number(backEndPay);
-    } else if (job == 2) {
-      pay = Number(frontEndPay);
-    } else if (job == 3) {
-      pay = Number(designAnalysisPay);
-    }
-
     price = Number((pay * oreLavorate).toFixed(2));
     discount = Number(((price / 100) * discountQuantity).toFixed(2));
     price = Number((price - discount).toFixed(2));
