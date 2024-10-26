@@ -19,10 +19,10 @@ export function navBar() {
                 <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="servizi.html">Servizi</a>
+                <a class="nav-link" href="#">Servizi</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contatti.html">Contatti</a>
+                <a class="nav-link" href="#">Contatti</a>
               </li>
             </ul>
           </div>
