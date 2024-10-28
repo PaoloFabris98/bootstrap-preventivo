@@ -32,7 +32,7 @@ export function validation(name, surname, email, job, text, prom, privacy) {
     main.surnameField.classList.add("border-success");
     populator.removeAlert(surnameErr);
   }
-  if (!funct.isString(email) || email === "" || !funct.validateEmail(email) || !isNaN(surname)) {
+  if (!funct.isString(email) || email === "" || !funct.validateEmail(email) || !isNaN(email)) {
     err++;
     main.emailField.classList.remove("border-success");
     main.emailField.classList.add("border-danger");
