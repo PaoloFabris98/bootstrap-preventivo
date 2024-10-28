@@ -1,16 +1,8 @@
 import * as populator from "./populator.js";
-import * as funct from "./funct.js";
 import * as obj from "./obj.js";
 import * as val from "./validator.js";
 
-export const buttonSubmit = document.getElementById("submit");
-export const nameField = document.getElementById("nameInput");
-export const surnameField = document.getElementById("surnameInput");
-export const emailField = document.getElementById("emailInput");
-export const jobField = document.getElementById("jobSelect");
-export const textField = document.getElementById("textArea");
-export const promField = document.getElementById("promCode");
-export const privacyField = document.getElementById("privacy");
+const buttonSubmit = obj.fields[0].field;
 
 const finalPryce1 = document.getElementById("finalPryce1");
 const finalPryce2 = document.getElementById("finalPryce2");
@@ -23,41 +15,38 @@ populator.jobSelectPopulator(obj.jobCost.length);
 
 buttonSubmit.addEventListener("click", function (event) {
   event.preventDefault();
-  const name = nameField.value;
-  const surname = surnameField.value;
-  const email = emailField.value;
-  const job = jobField.value;
-  const text = textField.value;
-  const prom = promField.value;
-  const privacy = privacyField.checked;
+  obj.fields[1].valu = obj.fields[1].field.value;
+  obj.fields[2].valu = obj.fields[2].field.value;
+  obj.fields[3].valu = obj.fields[3].field.value;
+  obj.fields[4].valu = obj.fields[4].field.value;
+  obj.fields[5].valu = obj.fields[5].field.value;
+  obj.fields[6].valu = obj.fields[6].field.value.toLowerCase();
+  obj.fields[7].valu = obj.fields[7].field.checked;
+  
+  let err = val.validation();
 
-  let err = val.validation(name, surname, email, job, text, prom, privacy);
-
-  console.log(name);
-  console.log(surname);
-  console.log(email);
-  console.log(job);
-  console.log(text);
-  console.log(prom);
-  console.log(privacy);
+  console.log(obj.fields[1].valu);
+  console.log(obj.fields[2].valu);
+  console.log(obj.fields[3].valu);
+  console.log(obj.fields[4].valu);
+  console.log(obj.fields[5].valu);
+  console.log(obj.fields[6].valu);
+  console.log(obj.fields[7].valu);
 
   if (err == 0) {
     let price = Number(0);
-    let pay = Number(obj.jobCost[job - 1].paga);
+    let pay = Number(obj.jobCost[obj.fields[4].valu - 1].paga);
     let discountQuantity = Number(0);
     let discount = Number(0);
     let discauntValue = false;
     let priceDiscounted = Number(0);
 
-    if (prom != "") {
-      for (let i = 0; i < obj.codes.length; i++) {
-        if (prom === obj.codes[i].promcode && obj.codes[i].isValid) {
-          discountQuantity = Number(obj.codes[i].discount);
-          discauntValue = true;
-          break;
-        }
-      }
+    if (obj.fields[6].valu != "") {
+      let temp = val.promCodeValidator(obj.fields[6].valu);
+      discountQuantity = temp[0];
+      discauntValue = temp[1];
     }
+
     price = Number((pay * oreLavorate).toFixed(2));
     discount = Number(((price / 100) * discountQuantity).toFixed(2));
     priceDiscounted = Number((price - discount).toFixed(2));
@@ -66,29 +55,29 @@ buttonSubmit.addEventListener("click", function (event) {
     let discountStr = discount.toFixed(2);
     let [discountIntPart, discountDecimalPart] = discountStr.split(".");
     let priceDiscountedStr = priceDiscounted.toFixed(2);
-    let [priceDiscountedIntPart, priceDiscountedDecimalPart] = priceDiscountedStr.split(".");
+    let [priceDiscountedIntPart, priceDiscountedDecimalPart] =
+      priceDiscountedStr.split(".");
 
     if (discauntValue === true) {
       finalPryce1.innerHTML = `
   <b>Prezzo</b><br>
   € <b>${intPart}</b>,${decimalPart}
 `;
-finalPryce2.innerHTML = `
+      finalPryce2.innerHTML = `
 <b>Sconto</b><br>
   € <b>${discountIntPart}</b>,${discountDecimalPart}
 `;
-finalPryce3.innerHTML = `
+      finalPryce3.innerHTML = `
 <b>Prezzo Finale</b><br>
   € <b>${priceDiscountedIntPart}</b>,${priceDiscountedDecimalPart}
 `;
-
     } else {
       finalPryce1.innerHTML = `
-  <b>Prezzo</b><br>
+  <b>Prezzo Finale</b><br>
   € <b>${intPart}</b>,${decimalPart}
 `;
-finalPryce2.innerHTML = "";
-finalPryce3.innerHTML = "";
+      finalPryce2.innerHTML = "";
+      finalPryce3.innerHTML = "";
     }
   }
 });

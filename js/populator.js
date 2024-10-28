@@ -1,4 +1,6 @@
-import * as obj from "./obj.js"
+import * as obj from "./obj.js";
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 export function navBar() {
   const head = document.getElementById("navB");
@@ -31,18 +33,29 @@ export function navBar() {
     </div>`;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////
+
 export function error(field) {
   field.classList.remove("d-none");
 }
+
+////////////////////////////////////////////////////////////////////////////////////////
+
 export function removeAlert(field) {
   field.classList.add("d-none");
 }
 
-export function jobSelectPopulator(itteration){
+////////////////////////////////////////////////////////////////////////////////////////
+
+export function jobSelectPopulator(itteration) {
   const jobSelector = document.getElementById("jobSelect");
-  for(let i = 1; i <= itteration;i++){
+  for (let i = 1; i <= itteration; i++) {
     jobSelector.innerHTML += `
-      <option value="${i}">${obj.jobCost[i-1].name} - paga oraria: ${obj.jobCost[i-1].paga}€</option>
-    `
+      <option value="${i}">${obj.jobCost[i - 1].name} - paga oraria: ${
+      obj.jobCost[i - 1].paga
+    }€</option>
+    `;
   }
 }
+
+////////////////////////////////////////////////////////////////////////////////////////
