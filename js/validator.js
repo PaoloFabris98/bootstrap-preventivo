@@ -36,6 +36,7 @@ export function validation() {
         populator.removeAlert(obj.fields[i].err);
       }
     } else {
+      ////////////////////////////////////////////
       if (
         !funct.isString(obj.fields[3].valu) ||
         obj.fields[3].valu === "" ||
@@ -51,7 +52,7 @@ export function validation() {
         emailField.classList.add("border-success");
         populator.removeAlert(emailErr);
       }
-
+      ////////////////////////////////////////////
       if (
         obj.fields[4].valu === "Seleziona il lavoro" ||
         !funct.isString(obj.fields[4].valu)
@@ -65,12 +66,14 @@ export function validation() {
         jobField.classList.add("border-success");
         populator.removeAlert(jobErr);
       }
+      ////////////////////////////////////////////
       if (!funct.isString(obj.fields[6].valu)) {
         err++;
         populator.error(promErr);
       } else {
         populator.removeAlert(promErr);
       }
+      ////////////////////////////////////////////
       if (!obj.fields[7].valu) {
         err++;
         privacyField.classList.remove("border-success");
@@ -81,6 +84,7 @@ export function validation() {
         privacyField.classList.add("border-success");
         populator.removeAlert(privacyErr);
       }
+      ////////////////////////////////////////////
     }
   }
 
