@@ -7,6 +7,8 @@ const max = Number(100);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+//tipi di lavoro secondo esercizio
 export const jobCost = [
   {
     name: "sviluppo backend",
@@ -24,6 +26,8 @@ export const jobCost = [
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+//codici sconto
 export const codes = [
   {
     promcode: "YHDNU32",
@@ -54,6 +58,8 @@ export const codes = [
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+// creazione oggetti in base alle loro varie posizioni nel form + opzioni di logica dei dati
 export const fields = [
   {
     id: "submit",

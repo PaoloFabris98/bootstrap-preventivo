@@ -3,6 +3,9 @@ import * as funct from "./funct.js";
 import * as obj from "./obj.js";
 
 ////////////////////////////////////////////////////////////////////////////////////////
+
+
+//funzione per controllare se i dati inseriti sono corretti, ritorna il valore di err, usato poi nel codice per controllare se ci sono dati errati
 export function validation() {
   let err = 0;
 
@@ -89,6 +92,8 @@ export function validation() {
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+// funzione per controllare la validità e l'eventuale quantità di sconto 
 export function promCodeValidator(prom) {
   for (let i = 0; i < obj.codes.length; i++) {
     if (

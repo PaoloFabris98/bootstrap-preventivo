@@ -2,6 +2,8 @@ import * as obj from "./obj.js";
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+//navbar, sfortunatamente questo metodo sarebbe utile solo quando si hanno più pagine...
 export function navBar() {
   const head = document.getElementById("navB");
   head.innerHTML += `<div class="container ps-3">
@@ -35,18 +37,22 @@ export function navBar() {
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+//funzione per mostrare la stringa di errore in caso di errore nel valore dei dati
 export function error(field) {
   field.classList.remove("d-none");
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+// funzione per nascondere la stringa di errore in caso i dati inseriti siano corretti
 export function removeAlert(field) {
   field.classList.add("d-none");
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+// popolatore delle opzioni del selettore del lavoro, nel caso specifico, la parte randomica è solamente il prezzo.
 export function jobSelectPopulator(itteration) {
   const jobSelector = document.getElementById("jobSelect");
   for (let i = 1; i <= itteration; i++) {
