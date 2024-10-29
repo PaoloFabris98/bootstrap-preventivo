@@ -92,7 +92,7 @@ export function validation() {
 export function promCodeValidator(prom) {
   for (let i = 0; i < obj.codes.length; i++) {
     if (
-      prom === obj.codes[i].promcode.toLocaleLowerCase() &&
+      prom === obj.codes[i].promcode.toLowerCase() &&
       obj.codes[i].isValid
     ) {
       return [Number(obj.codes[i].discount), true];

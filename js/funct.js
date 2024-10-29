@@ -22,7 +22,7 @@ export function getRandomNumber(min, max) {
 export function autoValues() {
   for (let i = 0; i < obj.fields.length; i++) {
     if (obj.fields[i].autoValue === true) {
-      if(obj.fields[i].id === "privacy"){
+      if(obj.fields[i].toCheck === true){
         obj.fields[i].valu = obj.fields[i].field.checked;
       } else if (obj.fields[i].toLower === false) {
         obj.fields[i].valu = obj.fields[i].field.value;
