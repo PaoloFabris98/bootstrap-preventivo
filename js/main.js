@@ -1,5 +1,6 @@
 import * as populator from "./populator.js";
 import * as obj from "./obj.js";
+import * as funct from "./funct.js";
 import * as val from "./validator.js";
 
 const buttonSubmit = obj.fields[0].field;
@@ -15,13 +16,8 @@ populator.jobSelectPopulator(obj.jobCost.length);
 
 buttonSubmit.addEventListener("click", function (event) {
   event.preventDefault();
-  obj.fields[1].valu = obj.fields[1].field.value;
-  obj.fields[2].valu = obj.fields[2].field.value;
-  obj.fields[3].valu = obj.fields[3].field.value;
-  obj.fields[4].valu = obj.fields[4].field.value;
-  obj.fields[5].valu = obj.fields[5].field.value;
-  obj.fields[6].valu = obj.fields[6].field.value.toLowerCase();
-  obj.fields[7].valu = obj.fields[7].field.checked;
+
+  funct.autoValues();
   
   let err = val.validation();
 

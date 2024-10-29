@@ -1,3 +1,5 @@
+import * as obj from "./obj.js";
+
 export function isString(word) {
   return typeof word === "string";
 }
@@ -16,3 +18,17 @@ export function getRandomNumber(min, max) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
+
+export function autoValues() {
+  for (let i = 0; i < obj.fields.length; i++) {
+    if (obj.fields[i].autoValue === true) {
+      if(obj.fields[i].id === "privacy"){
+        obj.fields[i].valu = obj.fields[i].field.checked;
+      } else if (obj.fields[i].toLower === false) {
+        obj.fields[i].valu = obj.fields[i].field.value;
+      } else if (obj.fields[i].toLower === true) {
+        obj.fields[i].valu = obj.fields[i].field.value.toLowerCase();
+      }
+    }
+  }
+}
