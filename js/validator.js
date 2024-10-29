@@ -72,7 +72,7 @@ export function validation() {
           err++;
           obj.fields[i].field.classList.remove("border-success");
           obj.fields[i].field.classList.add("border-danger");
-          populator.error(privacyErr);
+          populator.error(obj.fields[i].err);
         } else {
           obj.fields[i].field.classList.remove("border-danger");
           obj.fields[i].field.classList.add("border-success");
