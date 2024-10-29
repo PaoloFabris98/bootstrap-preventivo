@@ -18,7 +18,7 @@ buttonSubmit.addEventListener("click", function (event) {
   event.preventDefault();
 
   funct.autoValues();
-  
+
   let err = val.validation();
 
   console.log(obj.fields[1].valu);
