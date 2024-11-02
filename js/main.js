@@ -34,7 +34,6 @@ buttonSubmit.addEventListener("click", function (event) {
   console.log(obj.fields[6].valu);
   console.log(obj.fields[7].valu);
 
-
   if (err == 0) {
     //calcolo prezzo ed eventuale sconto//
     let price = Number(0);
@@ -44,10 +43,15 @@ buttonSubmit.addEventListener("click", function (event) {
     let discauntValue = false;
     let priceDiscounted = Number(0);
 
-    if (obj.fields[6].valu != "") {
-      let temp = val.promCodeValidator(obj.fields[6].valu);
-      discountQuantity = temp[0];
-      discauntValue = temp[1];
+    for (let i = 0; i < obj.fields.length; i++) {
+      if (obj.fields[i].id === "prom") {
+        if (obj.fields[i].valu != "") {
+          let temp = val.promCodeValidator(obj.fields[i].valu);
+          discountQuantity = temp[0];
+          discauntValue = temp[1];
+          break;
+        }
+      }
     }
 
     price = Number((pay * oreLavorate).toFixed(2));
